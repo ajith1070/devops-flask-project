@@ -139,3 +139,27 @@ Query the following metric in the Prometheus UI:
 ```promql
 flask_http_requests_total
 ```
+
+## Terraform Infrastructure as Code (IaC)
+
+**Project Status: Implemented**
+
+This project demonstrates Terraform-based infrastructure configuration and Infrastructure as Code (IaC) principles.
+
+### Key Areas
+- Terraform providers and resource configuration
+- Input variables and output values
+- EC2 instance and security group configuration
+- Reusable Terraform modules
+- Terraform initialization, validation and execution planning
+- State management and infrastructure change tracking
+- GitHub-based version control and documentation
+
+### Technologies
+- Terraform
+- AWS EC2
+- AWS VPC and security groups
+- Git and GitHub
+
+Project files and configuration are maintained in the [`terraform/`](terraform/) directory.
+
