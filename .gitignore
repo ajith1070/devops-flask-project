@@ -27,7 +27,6 @@ override.tf.json
 .pytest_cache/
 
 # Local Terraform test files and state
-/terraform/
 
 # Local credentials and environment files
 .env
