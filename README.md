@@ -116,3 +116,25 @@ kubectl port-forward -n monitoring svc/monitoring-grafana 3001:80
 ```
 
 Then open http://localhost:3001 in your browser.
+
+### Flask Application Metrics
+
+Integrated the Flask application with Prometheus using the Prometheus Python client.
+
+- Exposed application metrics at `/metrics`.
+- Added HTTP request counters labelled by method, endpoint, and status code.
+- Added request-duration histogram metrics.
+- Created a Kubernetes `ServiceMonitor` to scrape the Flask service every 15 seconds.
+- Verified that the Flask application target is **UP** in Prometheus.
+- Created a `PrometheusRule` containing the `FlaskAppDown` alert rule, configured to trigger after one minute of downtime.
+
+Monitoring manifests:
+- `k8s/monitoring/servicemonitor.yaml`
+- `k8s/monitoring/prometheusrule.yaml`
+
+### Verify Application Metrics
+
+Query the following metric in the Prometheus UI:
+
+```promql
+flask_http_requests_total

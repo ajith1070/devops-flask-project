@@ -1,0 +1,19 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: flask-alerts
+  namespace: monitoring
+  labels:
+    release: monitoring
+spec:
+  groups:
+    - name: flask.rules
+      rules:
+        - alert: FlaskAppDown
+          expr: up{namespace="default", service="flask-service"} == 0
+          for: 1m
+          labels:
+            severity: warning
+          annotations:
+            summary: Flask application is down
+            description: Prometheus cannot scrape the Flask application's metrics endpoint.
