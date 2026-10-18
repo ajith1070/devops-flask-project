@@ -35,3 +35,4 @@ override.tf.json
 
 # Python and test caches
 .pytest_cache/
+terraform/hello.txt
