@@ -138,3 +138,4 @@ Query the following metric in the Prometheus UI:
 
 ```promql
 flask_http_requests_total
+```
